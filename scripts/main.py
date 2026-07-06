@@ -18,12 +18,10 @@ print(f"Menor venda: R$ {resumo['menor_valor_venda']:,.2f}")
 print(f"Média das vendas: R$ {resumo['valor_medio_venda']:,.2f}")
 
 print("\nProdutos mais vendidos:\n")
-for produto, quantidade in resumo['ranking_produtos_mais_vendidos'].items():
+
+for posicao, (produto, quantidade) in enumerate(resumo['ranking_produtos_mais_vendidos'].items(), start=1):
     print(f"{posicao}° {produto} - {quantidade}")
-    posicao += 1
 
 print("\nRanking de Vendedores\n")
-posicao = 1
-for vendedor, valor in resumo["ranking_vendedores_por_faturamento"].items():
-    print(f"{posicao}° {vendedor} - R$ {valor:,.2f}")
-    posicao += 1
+for posicao, (vendedor, valor) in enumerate(resumo['ranking_vendedores_por_faturamento'].items(), start=1):
+    print(f"{posicao}° {vendedor} - R$: {valor:,.2f}")
