@@ -1,33 +1,5 @@
-import pandas as pd
-
-
-def carregar_dados():
-    """Lê o arquivo CSV e devolve um DataFrame."""
-
-    df = pd.read_csv("dados/vendas.csv")
-    return df
-
-
-def faturamento_total(df):
-    return df["Valor"].sum()
-
-def quantidade_vendas(df):
-    return len(df)
-
-def maior_valor_venda(df):
-    return df["Valor"].max()
-
-def menor_valor_venda(df):
-    return df["Valor"].min()
-
-def valor_medio_venda(df):
-    return df["Valor"].mean()
-
-def ranking_vendedores_por_faturamento(df):
-    return df.groupby("Vendedor")["Valor"].sum().sort_values(ascending=False)
-
-def ranking_produtos_mais_vendidos(df):
-    return df.groupby("Produto")["Quantidade"].sum().sort_values(ascending=False)
+from indicadores import (faturamento_total, quantidade_vendas, maior_valor_venda, menor_valor_venda, valor_medio_venda)
+from rankings import (ranking_produtos_mais_vendidos, ranking_vendedores_por_faturamento)
 
 def resumo_geral(df):
     """Calcula as principais métricas."""

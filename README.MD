@@ -1,8 +1,10 @@
 # Painel Inteligente de Vendas
 
-## Objetivo
+## Sobre o projeto
 
-Fazer um painel inteligente com o objetivo de aprender as funcionalidades das tecnologias
+Este projeto realiza a análise de um arquivo CSV contendo as vendas de uma loja de eletrônicos.
+
+A partir desses dados, são gerados indicadores (KPIs), rankings e, futuramente, um dashboard interativo para facilitar a visualização e a análise das informações.
 
 ## Tecnologias
 
