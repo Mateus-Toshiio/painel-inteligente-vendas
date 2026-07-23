@@ -1,7 +1,7 @@
 import streamlit as st
+
+from scripts.components.graficos import mostrar_graficos
 from scripts.components.kpis import mostrar_kpis
-
-
 from scripts.carregamento import carregar_dados
 from scripts.analise import resumo_geral
 
@@ -21,5 +21,10 @@ mostrar_kpis(
     maior_valor_venda=resumo["maior_valor_venda"],
     menor_valor_venda=resumo["menor_valor_venda"],
     valor_medio_venda=resumo["valor_medio_venda"]
+)
+
+mostrar_graficos(
+    faturamento_por_produto=resumo["faturamento_por_produto"],
+    faturamento_por_vendedor=resumo["faturamento_por_vendedor"]
 )
 
