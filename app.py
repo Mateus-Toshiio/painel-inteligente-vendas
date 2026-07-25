@@ -4,6 +4,7 @@ from scripts.components.graficos import mostrar_graficos
 from scripts.components.kpis import mostrar_kpis
 from scripts.carregamento import carregar_dados
 from scripts.analise import resumo_geral
+from scripts.components.sidebar import mostrar_sidebar
 
 st.set_page_config(
     page_title="Painel Inteligente de Vendas",
@@ -13,7 +14,8 @@ st.set_page_config(
 st.title("Painel Inteligente de Vendas")
 
 df = carregar_dados()
-resumo = resumo_geral(df)
+filtros = mostrar_sidebar(df)
+resumo = resumo_geral(df, **filtros)
 
 mostrar_kpis(
     faturamento_total=resumo["faturamento_total"],
