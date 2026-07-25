@@ -5,6 +5,8 @@ from scripts.components.kpis import mostrar_kpis
 from scripts.carregamento import carregar_dados
 from scripts.analise import resumo_geral
 from scripts.components.sidebar import mostrar_sidebar
+from scripts.filtros import aplicar_filtros
+from scripts.components.tabela import mostrar_tabela_vendas
 
 st.set_page_config(
     page_title="Painel Inteligente de Vendas",
@@ -14,8 +16,12 @@ st.set_page_config(
 st.title("Painel Inteligente de Vendas")
 
 df = carregar_dados()
+
 filtros = mostrar_sidebar(df)
-resumo = resumo_geral(df, **filtros)
+
+df_filtrado = aplicar_filtros(df, **filtros)
+
+resumo = resumo_geral(df_filtrado)
 
 mostrar_kpis(
     faturamento_total=resumo["faturamento_total"],
@@ -25,8 +31,13 @@ mostrar_kpis(
     valor_medio_venda=resumo["valor_medio_venda"]
 )
 
+st.divider()
+
 mostrar_graficos(
     faturamento_por_produto=resumo["faturamento_por_produto"],
     faturamento_por_vendedor=resumo["faturamento_por_vendedor"]
 )
 
+st.divider()
+
+mostrar_tabela_vendas(df_filtrado)

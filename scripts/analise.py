@@ -10,14 +10,6 @@ def resumo_geral(df,
         valor_min=None,
         valor_max=None):
 
-    df = aplicar_filtros(df,
-        vendedor=vendedor,
-        produto=produto,
-        data_inicio=data_inicio,
-        data_fim=data_fim,
-        valor_min=valor_min,
-        valor_max=valor_max)
-
     resumo = {
         "quantidade_vendas": quantidade_vendas(df),
         "faturamento_total": faturamento_total(df),
