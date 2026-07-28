@@ -2,42 +2,43 @@ import streamlit as st
 import pandas as pd
 
 def mostrar_sidebar(df):
+    with st.sidebar:
+        st.header("Filtros")
 
-    st.sidebar.header("Filtros")
+        st.divider()
+        st.subheader("Comercial")
 
-    vendedores = ["Todos"] + sorted(df["Vendedor"].unique())
+        vendedores = ["Todos"] + sorted(df["Vendedor"].unique())
 
-    vendedor = st.sidebar.selectbox(
-        "Vendedor",
-        vendedores
-    )
+        vendedor = st.selectbox(
+            "Vendedor",
+            vendedores
+        )
 
-    produtos = ["Todos"] + sorted(df["Produto"].unique())
+        produtos = ["Todos"] + sorted(df["Produto"].unique())
 
-    produto = st.sidebar.selectbox(
-        "Produto",
-        produtos
-    )
+        produto = st.selectbox(
+            "Produto",
+            produtos
+        )
 
-    valor_min = st.sidebar.number_input(
-        "Valor Mínimo"
-    )
+        st.divider()
+        st.subheader("Financeiro")
 
-    valor_max = st.sidebar.number_input(
-        "Valor Máximo"
-    )
+        col1, col2 = st.columns(2)
 
-    data_inicio = st.sidebar.date_input(
-        "Data Início",
-        value=None,
-        format="DD/MM/YYYY"
-    )
+        with col1: valor_min = st.number_input("Mínimo")
 
-    data_fim = st.sidebar.date_input(
-        "Data Fim",
-        value=None,
-        format="DD/MM/YYYY"
-    )
+        with col2: valor_max = st.number_input("Máximo")
+
+        st.divider()
+        st.subheader("Período")
+
+        col1, col2 = st.columns(2)
+
+        with col1: data_inicio = st.date_input("Início", value=None, format="DD/MM/YYYY")
+
+        with col2: data_fim = st.date_input("Fim", value=None, format="DD/MM/YYYY")
 
     if data_inicio is not None:
         data_inicio = pd.to_datetime(data_inicio)

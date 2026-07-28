@@ -1,8 +1,14 @@
 import streamlit as st
+from pathlib import Path
+
+CAMINHO_CSS = Path("styles") / "estilo.css"
 
 def carregar_css():
-    with open("styles/estilo.css", encoding="utf-8") as arquivo:
-        conteudo = arquivo.read()
+    try:
+        with open("styles/estilo.css", encoding="utf-8") as arquivo:
+            conteudo = arquivo.read()
+    except FileNotFoundError:
+        st.warning("Arquivo CSS não encontrado")
 
 
     st.markdown(

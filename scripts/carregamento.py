@@ -1,7 +1,13 @@
 import pandas as pd
+import streamlit as st
 
+@st.cache_data
 def carregar_dados():
-    df = pd.read_csv("dados/vendas.csv")
+    try:
+        df = pd.read_csv("dados/vendas.csv")
+    except FileNotFoundError:
+        st.error("Arquivo não encontrado.")
+        st.stop()
 
     df['Data'] = pd.to_datetime(df['Data'])
     return df

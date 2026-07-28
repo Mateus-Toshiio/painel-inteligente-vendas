@@ -11,17 +11,6 @@ def formatar_tabelas(df):
         ]
     ].copy()
 
-    df_exibicao["Data"] = df_exibicao["Data"].dt.strftime("%d/%m/%Y")
-
-    df_exibicao["Valor"] = (
-        "R$ "
-        + df_exibicao["Valor"]
-            .map(lambda x: f"{x:,.2f}")
-            .str.replace(",", "X")
-            .str.replace(".", ",")
-            .str.replace("X", ".")
-    )
-
     return df_exibicao
 
 def mostrar_tabela_vendas(df):
@@ -31,5 +20,29 @@ def mostrar_tabela_vendas(df):
 
     st.dataframe(
         df_exibicao,
-        use_container_width=True
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "Data": st.column_config.DateColumn(
+                "Data",
+                width=110
+            ),
+            "Vendedor": st.column_config.TextColumn(
+                "Vendedor",
+                width="medium"
+            ),
+            "Produto": st.column_config.TextColumn(
+                "Produto",
+                width="medium"
+            ),
+            "Quantidade": st.column_config.NumberColumn(
+                "Quantidade",
+                width=30
+            ),
+            "Valor": st.column_config.NumberColumn(
+                "Valor",
+                width=130,
+                format="R$ %.2f"
+            )
+        }
     )

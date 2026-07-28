@@ -7,15 +7,6 @@ def aplicar_filtros(
         valor_min=None,
         valor_max=None
 ):
-    if (
-        vendedor is None
-        and produto is None
-        and data_inicio is None
-        and data_fim is None
-        and valor_min is None
-        and valor_max is None
-    ):
-        return df
     
     if vendedor is not None:
         df = df[df['Vendedor'] == vendedor]
