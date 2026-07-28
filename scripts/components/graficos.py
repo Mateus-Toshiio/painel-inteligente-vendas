@@ -55,8 +55,10 @@ def mostrar_graficos(faturamento_por_produto, faturamento_por_vendedor):
                         })
 
     with col2:
+
         fig = criar_grafico_barras(
-            df=faturamento_por_vendedor,
+            df=faturamento_por_vendedor.sort_values(by="Valor", ascending=False)
+                                        .head(5),
             x="Valor",
             y="Vendedor",
             titulo="👤 Faturamento por Vendedor",
