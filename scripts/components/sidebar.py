@@ -3,7 +3,7 @@ import pandas as pd
 
 def mostrar_sidebar(df):
 
-    st.sidebar.header("Filtros TESTE")
+    st.sidebar.header("Filtros")
 
     vendedores = ["Todos"] + sorted(df["Vendedor"].unique())
 

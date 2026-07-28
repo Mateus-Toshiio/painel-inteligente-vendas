@@ -17,7 +17,7 @@ def criar_grafico_barras(df, x, y, titulo):
     fig.update_layout(margin=dict(r=80),
                       yaxis_title="",
                       xaxis_title="",
-                      xaxis_range=[x, df[x].max() * 1.2]
+                      xaxis_range=[0, df[x].max() * 1.2]
     )
 
     fig.update_yaxes(autorange="max reversed")
@@ -32,7 +32,7 @@ def mostrar_graficos(faturamento_por_produto, faturamento_por_vendedor):
             df=faturamento_por_produto,
             x="Valor",
             y="Produto",
-            titulo="Faturamento por Produto"
+            titulo="📦 Faturamento por Produto"
         )
 
         st.plotly_chart(fig, use_container_width=True)
@@ -42,7 +42,7 @@ def mostrar_graficos(faturamento_por_produto, faturamento_por_vendedor):
             df=faturamento_por_vendedor,
             x="Valor",
             y="Vendedor",
-            titulo="Faturamento por Vendedor"
+            titulo="👤 Faturamento por Vendedor",
         )
 
         st.plotly_chart(fig, use_container_width=True)

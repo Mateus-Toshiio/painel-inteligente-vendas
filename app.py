@@ -7,13 +7,18 @@ from scripts.analise import resumo_geral
 from scripts.components.sidebar import mostrar_sidebar
 from scripts.filtros import aplicar_filtros
 from scripts.components.tabela import mostrar_tabela_vendas
+from scripts.utils.estilos import carregar_css
 
 st.set_page_config(
     page_title="Painel Inteligente de Vendas",
     layout="wide"
 )
 
-st.title("Painel Inteligente de Vendas")
+carregar_css()
+
+st.title("📊 Painel Inteligente de Vendas")
+
+st.caption("Acompanhe indicadores, gráficos e vendas utilizando os filtros disponíveis na barra lateral.")
 
 df = carregar_dados()
 
