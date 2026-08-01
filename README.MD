@@ -1,47 +1,78 @@
-# Painel Inteligente de Vendas
+# 📊 Painel  de Vendas
 
-## Sobre o projeto
+Dashboard interativo desenvolvido em **Python e Streamlit** para análise de dados de vendas de uma loja fictícia de eletrônicos.
 
-Dashboard interativo desenvolvido em Python para análise de vendas de uma loja fictícia de eletrônicos.
+O projeto permite acompanhar indicadores de desempenho, analisar o faturamento ao longo do tempo e explorar os dados através de filtros, gráficos e uma tabela detalhada.
 
-O projeto permite visualizar indicadores de desempenho, aplicar filtros e analisar os dados de forma rápida através de gráficos e tabelas interativas.
+## 🖥️ Dashboard
 
-## Tecnologias
+![Painel  de Vendas](assets/dashboard.png)
 
-- Python
-- Pandas
-- Streamlit
-- Plotly
-- CSS
+## 🎯 Sobre o projeto
 
-## Funcionalidades
+O Painel de Vendas foi desenvolvido para transformar dados brutos de vendas em informações de fácil interpretação.
 
-- Dashboard interativo
-- KPIs de vendas
-- Faturamento total
-- Valor médio
-- Maior venda
-- Menor venda
-- Filtro por vendedor
-- Filtro por produto
-- Filtro por período
-- Filtro por faixa de valor
-- Gráfico de faturamento por vendedor
-- Gráfico de faturamento por produto
-- Tabela detalhada das vendas
+A aplicação permite analisar diferentes aspectos do negócio, como faturamento, desempenho dos vendedores, produtos vendidos e evolução das vendas ao longo do tempo.
 
-## Como Executar
+## 🛠️ Tecnologias utilizadas
+
+- **Python** — processamento e lógica da aplicação
+- **Pandas** — manipulação e análise dos dados
+- **Streamlit** — construção da interface e dashboard
+- **Plotly** — criação dos gráficos interativos
+- **CSS** — personalização visual da aplicação
+
+## ⚙️ Funcionalidades
+
+- 📊 Visualização de KPIs de vendas
+- 💰 Faturamento total e valor médio das vendas
+- 📈 Maior e menor venda
+- 📦 Análise de faturamento por produto
+- 👤 Análise de faturamento por vendedor
+- 📅 Evolução mensal do faturamento
+- 🔎 Filtros por vendedor e produto
+- 💵 Filtro por faixa de valor
+- 🗓️ Filtro por período
+- 🧹 Limpeza rápida de todos os filtros
+- 📋 Tabela detalhada das vendas
+
+## 🚀 Como executar o projeto
+
+### 1. Clone o repositório
 
 ```bash
-git clone <https://github.com/Mateus-Toshiio/painel-inteligente-vendas.git>
+git clone https://github.com/Mateus-Toshiio/painel-inteligente-vendas.git
+```
 
+### 2. Entre na pasta do projeto
+
+```bash
 cd painel-inteligente-vendas
+```
 
+### 3. Instale as dependências
+
+```bash
 pip install -r requirements.txt
+```
 
+### 4. Execute a aplicação
+
+```bash
 streamlit run app.py
 ```
 
-## Objetivo
+A aplicação será iniciada pelo Streamlit e poderá ser acessada pelo endereço exibido no terminal.
 
-Este projeto foi desenvolvido para consolidar conhecimentos em análise de dados com Python, criação de dashboards interativos e boas práticas de desenvolvimento, como modularização, separação de responsabilidades e organização de projetos.
+## 🎯 Objetivo
+
+Este projeto foi desenvolvido para simular um cenário de análise de dados de vendas, transformando uma base de dados em informações úteis para acompanhamento do desempenho comercial.
+
+Durante o desenvolvimento foram aplicados conceitos de:
+
+- Tratamento e análise de dados com Pandas
+- Criação de indicadores de desempenho (KPIs)
+- Visualização de dados
+- Desenvolvimento de dashboards interativos
+- Modularização e separação de responsabilidades
+- Aplicação de filtros para exploração dos dados

@@ -10,13 +10,13 @@ from scripts.components.tabela import mostrar_tabela_vendas
 from scripts.utils.estilos import carregar_css
 
 st.set_page_config(
-    page_title="Painel Inteligente de Vendas",
+    page_title="Painel de Vendas",
     layout="wide"
 )
 
 carregar_css()
 
-st.title("📊 Painel Inteligente de Vendas")
+st.title("📊 Painel de Vendas")
 
 st.caption("Acompanhe indicadores, gráficos e vendas utilizando os filtros disponíveis na barra lateral.")
 
