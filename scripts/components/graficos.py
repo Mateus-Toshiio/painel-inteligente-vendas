@@ -69,3 +69,45 @@ def mostrar_graficos(faturamento_por_produto, faturamento_por_vendedor):
                         config={
                             "displayModeBar":False
                         })
+
+def criar_grafico_evolucao(df):
+    fig = px.line(
+        df,
+        x="Data",
+        y="Valor",
+        title="📈 Evolução do Faturamento",
+        markers=True
+    )
+
+    fig.update_traces(
+        line=dict(width=3),
+        hovertemplate=(
+            "<b>%{x|%m/%Y}</b><br>"
+            "Faturamento: R$ %{y:,.2f}"
+            "<extra></extra>"
+        )
+    )
+
+    fig.update_layout(
+        xaxis_title="",
+        yaxis_title="",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        font=dict(size=14),
+        height=400,
+        title=dict(
+            x=0,
+            font=dict(size=20)
+        )
+    )
+
+    fig.update_xaxes(
+        showgrid=False
+    )
+
+    fig.update_yaxes(
+        tickprefix="R$ ",
+        showgrid=True
+    )
+
+    return fig

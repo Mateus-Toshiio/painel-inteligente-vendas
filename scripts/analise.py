@@ -1,4 +1,4 @@
-from scripts.indicadores import (faturamento_total, quantidade_vendas, maior_valor_venda, menor_valor_venda, valor_medio_venda, faturamento_por_produto, faturamento_por_vendedor)
+from scripts.indicadores import (faturamento_total, quantidade_vendas, maior_valor_venda, menor_valor_venda, valor_medio_venda, faturamento_por_produto, faturamento_por_vendedor, faturamento_por_mes)
 
 def resumo_geral(df):
 
@@ -9,7 +9,8 @@ def resumo_geral(df):
         "menor_valor_venda": menor_valor_venda(df),
         "valor_medio_venda": valor_medio_venda(df),
         "faturamento_por_produto": faturamento_por_produto(df),
-        "faturamento_por_vendedor": faturamento_por_vendedor(df)
+        "faturamento_por_vendedor": faturamento_por_vendedor(df),
+        "faturamento_por_mes": faturamento_por_mes(df),
     }
 
     return resumo

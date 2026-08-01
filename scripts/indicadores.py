@@ -18,3 +18,14 @@ def faturamento_por_produto(df):
 
 def faturamento_por_vendedor(df):
     return df.groupby("Vendedor")["Valor"].sum().sort_values(ascending=False).reset_index()
+
+def faturamento_por_mes(df):
+    dados = df.copy()
+
+    dados["Data"] = dados["Data"].dt.to_period("M").dt.to_timestamp()
+
+    return (
+        dados.groupby("Data")["Valor"]
+        .sum()
+        .reset_index()
+    )

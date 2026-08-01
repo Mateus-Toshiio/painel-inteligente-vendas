@@ -1,6 +1,6 @@
 import streamlit as st
 
-from scripts.components.graficos import mostrar_graficos
+from scripts.components.graficos import mostrar_graficos, criar_grafico_evolucao
 from scripts.components.kpis import mostrar_kpis
 from scripts.carregamento import carregar_dados
 from scripts.analise import resumo_geral
@@ -41,6 +41,16 @@ st.divider()
 mostrar_graficos(
     faturamento_por_produto=resumo["faturamento_por_produto"],
     faturamento_por_vendedor=resumo["faturamento_por_vendedor"]
+)
+
+fig_evolucao = criar_grafico_evolucao(
+    resumo["faturamento_por_mes"]
+)
+
+st.plotly_chart(
+    fig_evolucao,
+    use_container_width=True,
+    config={"displayModeBar": False}
 )
 
 st.divider()
