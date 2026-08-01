@@ -1,6 +1,14 @@
 import streamlit as st
 import pandas as pd
 
+def limpar_filtros():
+    st.session_state["filtro_vendedor"] = "Todos"
+    st.session_state["filtro_produto"] = "Todos"
+    st.session_state["filtro_valor_min"] = 0.0
+    st.session_state["filtro_valor_max"] = 0.0
+    st.session_state["filtro_data_inicio"] = None
+    st.session_state["filtro_data_fim"] = None
+
 def mostrar_sidebar(df):
     with st.sidebar:
         st.header("Filtros")
@@ -12,14 +20,16 @@ def mostrar_sidebar(df):
 
         vendedor = st.selectbox(
             "Vendedor",
-            vendedores
+            vendedores,
+            key="filtro_vendedor"
         )
 
         produtos = ["Todos"] + sorted(df["Produto"].unique())
 
         produto = st.selectbox(
             "Produto",
-            produtos
+            produtos,
+            key="filtro_produto"
         )
 
         st.divider()
@@ -27,18 +37,24 @@ def mostrar_sidebar(df):
 
         col1, col2 = st.columns(2)
 
-        with col1: valor_min = st.number_input("Mínimo")
+        with col1: valor_min = st.number_input("Mínimo", key="filtro_valor_min")
 
-        with col2: valor_max = st.number_input("Máximo")
+        with col2: valor_max = st.number_input("Máximo", key="filtro_valor_max")
 
         st.divider()
         st.subheader("Período")
 
         col1, col2 = st.columns(2)
 
-        with col1: data_inicio = st.date_input("Início", value=None, format="DD/MM/YYYY")
+        with col1: data_inicio = st.date_input("Início", value=None, format="DD/MM/YYYY", key="filtro_data_inicio")
 
-        with col2: data_fim = st.date_input("Fim", value=None, format="DD/MM/YYYY")
+        with col2: data_fim = st.date_input("Fim", value=None, format="DD/MM/YYYY", key="filtro_data_fim")
+
+        st.button(
+            "🧹 Limpar filtros",
+            on_click=limpar_filtros,
+            use_container_width=True
+        )
 
     if data_inicio is not None:
         data_inicio = pd.to_datetime(data_inicio)
