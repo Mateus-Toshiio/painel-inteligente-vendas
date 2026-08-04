@@ -4,6 +4,12 @@ Dashboard interativo desenvolvido em **Python e Streamlit** para análise de dad
 
 O projeto permite acompanhar indicadores de desempenho, analisar o faturamento ao longo do tempo e explorar os dados através de filtros, gráficos e uma tabela detalhada.
 
+## 🌐 Projeto online
+
+O dashboard está publicado e pode ser acessado diretamente pelo navegador:
+
+👉 [Acessar o Painel Inteligente de Vendas](https://painel-inteligente-vendas-8gebtq4rmz2n3buyr2cwk5.streamlit.app/)
+
 ## 🖥️ Dashboard
 
 ![Painel  de Vendas](assets/dashboard.png)
